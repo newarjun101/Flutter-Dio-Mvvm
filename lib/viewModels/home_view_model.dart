@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_mvvm/models/Datum.dart';
 import 'package:flutter_mvvm/riposository/home_ripo.dart';
 import 'package:flutter_mvvm/riposository/post_ripo.dart';
 import 'package:flutter_mvvm/views/modelForView/MainUiModel.dart';
@@ -11,13 +12,14 @@ class HomeviewMoel extends ChangeNotifier {
 
   HomeviewMoel(this.ripo, this.postRipo);
 
-  List<MainUiModel> list = [];
+  List<SourceUiModel> list = [];
   List<PostUiModel> posts = [];
 
-  void fetchData() async {
+   void fetchData() async {
     try {
       var result = await ripo.getData();
-      list.addAll(result);
+   list.addAll(result.source);
+      print("this is work now");
       notifyListeners();
     } catch (e) {
       print("error $e");

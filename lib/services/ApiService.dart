@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_mvvm/models/Datum.dart';
 import 'package:flutter_mvvm/models/MainModel.dart';
 import 'package:flutter_mvvm/views/modelForView/MainUiModel.dart';
 import 'package:retrofit/http.dart';
@@ -11,7 +12,7 @@ abstract class ApiService{
  factory ApiService(Dio dio) = _ApiService;
 
  @GET("data?drilldowns=Nation&measures=Population")
- Future<List<MainModel>> getPosts();
+ Future<MainModel> getPosts();
 
 
 }

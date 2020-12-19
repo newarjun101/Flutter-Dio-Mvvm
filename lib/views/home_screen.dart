@@ -17,6 +17,10 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
 
     _viewModel.fetchData();
+
+    print(_viewModel.list.length);
+
+
     _viewModel.getPost();
 
 
@@ -28,8 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
 
 
-      body: (_viewModel.posts!=0)?
+      body: (_viewModel.list!=null)?
           ChangeNotifierProvider(create: (context) =>_viewModel,
+
             child: Consumer<HomeviewMoel>(
 
               builder: (context,model,child) =>_buildList(context, model)
@@ -48,14 +53,16 @@ class _HomeScreenState extends State<HomeScreen> {
  Widget _buildList(BuildContext context,HomeviewMoel model){
 
   return ListView.builder(
-    itemCount: model.posts.length,
+    itemCount: model.list.length,
       itemBuilder: (context,index){
 
      // var text = (model.list[index].source).map((e) => model.list.length).toList();
+        var test = model.fetchData();
 
         return Card(
           elevation: 4,
-          child: Text(model.posts[index].title),
+          child: Text(model.list[index].name
+          ),
         );
       });
  }
