@@ -26,7 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
       create: (context) => _viewModel,
       child: Consumer<HomeviewMoel>(
           builder: (context, model, child) {
-             return _buildList(context, model); }),
+       //      return _buildList(context, model);
+            return ListView(
+              children: model.list.map(
+                      (e) => Text(e.name)).toList(),
+            );
+
+          }),
     )
 
 
@@ -38,14 +44,14 @@ Widget _buildList(BuildContext context, HomeviewMoel model) {
   return Container(
     height: 200,
     child: ListView.builder(
-        itemCount: 10,
+        itemCount:model.list.length,
         itemBuilder: (context, index) {
-          // var text = (model.list[index].source).map((e) => model.list.length).toList();
-          var test = model.fetchData();
+           var text = (model.list).map((e) => e.name).toList();
+
 
           return Card(
             elevation: 4,
-            child: Text(model.list[index].name),
+            child: Text(text.toString()),
           );
         }),
   );
