@@ -15,13 +15,13 @@ class HomeRipoImp implements HomeRipo {
 
 
   @override
-  Future<MainUiModel> getData() async {
+  Future<List<SourceUiModel>> getData() async {
     var result = await service.getPosts();
     var test = result.source.map((e) => e.mapper()).toList();
 
-    print("Arjun${MainUiModel(test)}");
 
-    return MainUiModel(test);
+
+    return test;
 
 
 

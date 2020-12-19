@@ -18,7 +18,7 @@ class HomeviewMoel extends ChangeNotifier {
    void fetchData() async {
     try {
       var result = await ripo.getData();
-   list.addAll(result.source);
+   list.addAll(result);
       print("this is work now");
       notifyListeners();
     } catch (e) {
@@ -30,7 +30,6 @@ class HomeviewMoel extends ChangeNotifier {
     try {
       var result = await postRipo.getData();
       posts.addAll(result);
-      print("hello world");
       notifyListeners();
     } catch (e) {
       print(e);

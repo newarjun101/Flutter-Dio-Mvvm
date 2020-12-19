@@ -26,11 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
       create: (context) => _viewModel,
       child: Consumer<HomeviewMoel>(
           builder: (context, model, child) {
-       //      return _buildList(context, model);
-            return ListView(
+             return _buildList(context, model);
+           /* return ListView(
               children: model.list.map(
                       (e) => Text(e.name)).toList(),
-            );
+            );*/
 
           }),
     )
