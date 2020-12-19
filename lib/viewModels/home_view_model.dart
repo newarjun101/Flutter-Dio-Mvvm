@@ -12,7 +12,7 @@ class HomeviewMoel extends ChangeNotifier {
 
   HomeviewMoel(this.ripo, this.postRipo);
 
-  List<SourceUiModel> list = [];
+ final List<SourceUiModel> list = [];
   List<PostUiModel> posts = [];
 
    void fetchData() async {

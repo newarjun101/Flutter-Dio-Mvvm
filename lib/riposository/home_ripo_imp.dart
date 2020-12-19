@@ -18,7 +18,8 @@ class HomeRipoImp implements HomeRipo {
   Future<MainUiModel> getData() async {
     var result = await service.getPosts();
     var test = result.source.map((e) => e.mapper()).toList();
-    print("yes");
+
+    print("Arjun${MainUiModel(test)}");
 
     return MainUiModel(test);
 

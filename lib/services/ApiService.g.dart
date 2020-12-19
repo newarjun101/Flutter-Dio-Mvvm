@@ -17,11 +17,11 @@ class _ApiService implements ApiService {
   String baseUrl;
 
   @override
-  Future<List<MainModel>> getPosts() async {
+  Future<MainModel> getPosts() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<List<dynamic>>(
+    final _result = await _dio.request<Map<String, dynamic>>(
         'data?drilldowns=Nation&measures=Population',
         queryParameters: queryParameters,
         options: RequestOptions(
@@ -30,9 +30,7 @@ class _ApiService implements ApiService {
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    var value = _result.data
-        .map((dynamic i) => MainModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = MainModel.fromJson(_result.data);
     return value;
   }
 }
