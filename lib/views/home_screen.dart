@@ -32,10 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       (e) => Text(e.name)).toList(),
             );*/
 
-          }),
-    )
-
-
+          }),)
         );
   }
 }
