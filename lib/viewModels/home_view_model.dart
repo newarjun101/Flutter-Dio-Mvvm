@@ -5,16 +5,12 @@ import 'package:flutter_mvvm/riposository/post_ripo.dart';
 import 'package:flutter_mvvm/views/modelForView/MainUiModel.dart';
 import 'package:flutter_mvvm/views/modelForView/PostUiModel.dart';
 import 'package:flutter_mvvm/views/modelForView/SourceUiModel.dart';
-
 class HomeviewMoel extends ChangeNotifier {
   HomeRipo ripo;
   PostRipo postRipo;
-
   HomeviewMoel(this.ripo, this.postRipo);
-
  final List<SourceUiModel> list = [];
   List<PostUiModel> posts = [];
-
    void fetchData() async {
     try {
       var result = await ripo.getData();
